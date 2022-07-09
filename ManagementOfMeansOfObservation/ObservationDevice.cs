@@ -38,7 +38,7 @@ namespace ManagementOfMeansOfObservation
         }
         public override string ToString()
         {
-            return base.ToString(); 
+            return "Device:: Type: " + ObserveType + ", Range: "+ range +", Field of vision: " + fieldOfView + "."; 
         }
     }
     
