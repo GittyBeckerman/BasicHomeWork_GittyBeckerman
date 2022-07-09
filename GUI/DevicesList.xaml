@@ -9,7 +9,7 @@
     <Grid>
         <ComboBox Name="TypeSelector" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" SelectionChanged="TypeSelectorSelectionChanged" Margin="640,22,0,0" />
 
-        <ListView x:Name="DevicesListView" ItemsSource="{Binding}"  FontSize="15" Padding="10" Margin="22,60,22,22" MouseDoubleClick="DevicesListView_MouseDoubleClick">
+        <ListView x:Name="DevicesListView" ItemsSource="{Binding }"  FontSize="15" Padding="10" Margin="22,60,22,22" MouseDoubleClick="DevicesListView_MouseDoubleClick">
             <ListView.Resources>
                 <DataTemplate x:Key="MyDataTemplate">
 

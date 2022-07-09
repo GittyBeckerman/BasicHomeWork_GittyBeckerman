@@ -44,6 +44,7 @@ namespace GUI
                 ObservationDevice observationDevice = (sender as ListView).SelectedValue as ObservationDevice;
                 bl.DeleteDevice(observationDevice.range, observationDevice.FieldOfView, observationDevice.ObserveType);
                 MyCollection.Remove(observationDevice);
+                DevicesListView.ItemsSource = MyCollection;
 
             }
             catch (Exception exc)
@@ -57,13 +58,34 @@ namespace GUI
         {
             ComboBox status = sender as ComboBox;
 
-           DevicesListView.ItemsSource = bl.GetDevicesList().FindAll(device => device.ObserveType == (ObserveType)status.SelectedItem);
+            DevicesListView.ItemsSource = bl.GetDevicesList().FindAll(device => device.ObserveType == (ObserveType)status.SelectedItem);
         }
 
         private void SortByRange(object sender, RoutedEventArgs e)
         {
-            DevicesListView.ItemsSource =   MyCollection.OrderBy(d=> d.range);
+            
+         MyCollection  = ConvertListToObservableCollection(MyCollection.OrderBy(d => d.range).ToList());
+           /* DevicesListView.ItemsSource*/
         }
-    }
 
+        public static ObservableCollection<ObservationDevice> ConvertListToObservableCollection(List<ObservationDevice> SourceList)
+        {
+
+
+            ObservableCollection<ObservationDevice> targetList = new ObservableCollection<ObservationDevice>();
+
+            foreach (ObservationDevice device in SourceList)
+            {
+                targetList.Add(device);
+            }
+            return targetList;
+        }
+
+    }
 }
+
+
+
+
+
+
