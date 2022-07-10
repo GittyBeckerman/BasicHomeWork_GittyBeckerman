@@ -41,11 +41,12 @@ namespace GUI
         {
             try
             {
+                
                 ObservationDevice observationDevice = (sender as ListView).SelectedValue as ObservationDevice;
                 bl.DeleteDevice(observationDevice.range, observationDevice.FieldOfView, observationDevice.ObserveType);
                 MyCollection.Remove(observationDevice);
                 DevicesListView.ItemsSource = MyCollection;
-
+       
             }
             catch (Exception exc)
             {
@@ -71,8 +72,8 @@ namespace GUI
         public static ObservableCollection<ObservationDevice> ConvertListToObservableCollection(List<ObservationDevice> SourceList)
         {
 
-
-            ObservableCollection<ObservationDevice> targetList = new ObservableCollection<ObservationDevice>();
+            
+             ObservableCollection<ObservationDevice> targetList = new ObservableCollection<ObservationDevice>();
 
             foreach (ObservationDevice device in SourceList)
             {

@@ -8,6 +8,7 @@ namespace ManagementOfMeansOfObservation
 {
     static class program
     {
-     static void Main() { }
+        static void Main() { }
+
     }
 }
