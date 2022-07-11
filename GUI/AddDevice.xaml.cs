@@ -64,7 +64,7 @@ namespace GUI
         // chack input function - helper
         public int TypeInput()
         {
-            return Type.SelectedIndex != -1 ? Type.SelectedIndex  : throw new InvalidObjException("Weight");
+            return Type.SelectedIndex != -1 ? Type.SelectedIndex  : throw new InvalidObjException("type of observation device");
         }
         // chack input function - helper
         public double fieldOfVisionInput()
