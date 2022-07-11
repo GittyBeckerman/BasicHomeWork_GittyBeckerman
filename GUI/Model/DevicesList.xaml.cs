@@ -11,7 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using ManagementOfMeansOfObservation;
+using Model;
 using System.Collections.ObjectModel;
 
 namespace GUI
@@ -21,29 +21,36 @@ namespace GUI
     /// </summary>
     public partial class DevicesList : Window
     {
-        BL bl;
+        ObservationDeviceModel observationDeviceModel;
 
+
+        //viewModel instance - update the **view** auto when there is a change;
         private ObservableCollection<ObservationDevice> MyCollection = new ObservableCollection<ObservationDevice>();
-        public DevicesList(BL blMain)
+        public DevicesList(ObservationDeviceModel blMain)
         {
             InitializeComponent();
-            bl = blMain;
-            foreach (ObservationDevice device in bl.GetDevicesList())
+            observationDeviceModel = blMain;
+    
+            foreach (ObservationDevice device in observationDeviceModel.GetDevicesList())
             {
                 MyCollection.Add(device);
             }
+            if(MyCollection.Count == 0) MessageBox.Show("There are currently no devices of observation");
             DataContext = MyCollection;
             TypeSelector.ItemsSource = Enum.GetValues(typeof(ObserveType));
-
+           
+          
         }
+        
 
-        private void DevicesListView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        // the viewModel call to the Model and delete the device.
+        private void DeleteDeviceFromList(object sender, MouseButtonEventArgs e)
         {
             try
             {
                 
                 ObservationDevice observationDevice = (sender as ListView).SelectedValue as ObservationDevice;
-                bl.DeleteDevice(observationDevice.range, observationDevice.FieldOfView, observationDevice.ObserveType);
+                observationDeviceModel.DeleteDevice(observationDevice.range, observationDevice.FieldOfView, observationDevice.ObserveType);
                 MyCollection.Remove(observationDevice);
                 DevicesListView.ItemsSource = MyCollection;
        
@@ -51,7 +58,7 @@ namespace GUI
             catch (Exception exc)
             {
                 MessageBox.Show(exc.Message);
-                this.Close();
+                Close();
             }
         }
 
@@ -59,7 +66,7 @@ namespace GUI
         {
             ComboBox status = sender as ComboBox;
 
-            DevicesListView.ItemsSource = bl.GetDevicesList().FindAll(device => device.ObserveType == (ObserveType)status.SelectedItem);
+            DevicesListView.ItemsSource = observationDeviceModel.GetDevicesList().FindAll(device => device.ObserveType == (ObserveType)status.SelectedItem);
         }
 
         private void SortByRange(object sender, RoutedEventArgs e)
@@ -69,6 +76,10 @@ namespace GUI
 
         }
 
+
+
+
+        // helper function
         public static ObservableCollection<ObservationDevice> ConvertListToObservableCollection(List<ObservationDevice> SourceList)
         {
 

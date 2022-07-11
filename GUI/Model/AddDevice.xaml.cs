@@ -11,7 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using ManagementOfMeansOfObservation;
+using Model;
 
 namespace GUI
 {
@@ -20,8 +20,8 @@ namespace GUI
     /// </summary>
     public partial class AddDevice : Window
     {
-        private BL bl;
-        public AddDevice(BL blMain)
+        private ObservationDeviceModel bl;
+        public AddDevice(ObservationDeviceModel blMain)
         {
             InitializeComponent();
             bl = blMain;

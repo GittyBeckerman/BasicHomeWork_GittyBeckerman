@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using ManagementOfMeansOfObservation;
+using Model;
 
 namespace GUI
 {
@@ -21,7 +21,7 @@ namespace GUI
     /// </summary>
     public partial class MainWindow : Window
     {
-        BL bl = new BL();
+       private ObservationDeviceModel bl = new ObservationDeviceModel();
         public MainWindow()
         {
             InitializeComponent();

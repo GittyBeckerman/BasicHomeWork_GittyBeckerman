@@ -7,7 +7,15 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\ManagementOfMeansOfObservation\ManagementOfMeansOfObservation.csproj" />
+		<ProjectReference Include="..\ManagementOfMeansOfObservation\Model.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Model\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Page Include="App.xaml" />
 	</ItemGroup>
 
 </Project>

@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ManagementOfMeansOfObservation
+namespace Model
 {
-    public class BL
+    public class ObservationDeviceModel
     {
         List<ObservationDevice> observationDevices;
-        public BL()
+        public ObservationDeviceModel()
         {
             observationDevices = new List<ObservationDevice>();
         }

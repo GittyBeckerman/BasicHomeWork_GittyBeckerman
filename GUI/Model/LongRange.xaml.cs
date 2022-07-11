@@ -11,7 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using ManagementOfMeansOfObservation;
+using Model;
 
 namespace GUI
 {
@@ -20,22 +20,24 @@ namespace GUI
     /// </summary>
     public partial class LongRange : Window
     {
-        BL bl;
-        public LongRange(BL blMain)
+        // the instance of model
+        ObservationDeviceModel ObservationDeviceModel;
+        public LongRange(ObservationDeviceModel ObservationDeviceModelMain)
         {
 
             InitializeComponent();
-            bl = blMain;
+            ObservationDeviceModel = ObservationDeviceModelMain;
 
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        // the function display to the screen the devices who are they FieldOfView is at least As in their requirement and the range is max!
+        private void DisplaySuitabledevices(object sender, RoutedEventArgs e)
         {
             try
             {
-                bool observationDevice = bl.GetDevicesList().FindAll(d => d.FieldOfView >= fieldOfVisionInput()).OrderBy(d => d.range).ToList().Any();
-                DeviceInfo.Text = observationDevice == false ? "No device found" : bl.GetDevicesList().FindAll(d => d.FieldOfView >= fieldOfVisionInput()).OrderBy(d => d.range).ToList().First().ToString();
+                bool observationDevice = ObservationDeviceModel.GetDevicesList().FindAll(d => d.FieldOfView >= fieldOfVisionInput()).OrderBy(d => d.range).ToList().Any();
+                DeviceInfo.Text = observationDevice == false ? "No device found" : ObservationDeviceModel.GetDevicesList().FindAll(d => d.FieldOfView >= fieldOfVisionInput()).OrderBy(d => d.range).ToList().First().ToString();
             }
             catch (Exception exc)
             {
@@ -46,6 +48,11 @@ namespace GUI
 
         }
 
+
+
+
+
+        // cheack input function
         public double fieldOfVisionInput()
         {
             try { return double.Parse(fieldOfViewInput.Text); }
