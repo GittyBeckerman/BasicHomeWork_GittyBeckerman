@@ -85,7 +85,7 @@ namespace GUI
         {
             
          MyCollection  = ConvertListToObservableCollection(MyCollection.OrderBy(d => d.range).ToList());
-
+            DevicesListView.ItemsSource = MyCollection;
         }
 
 
