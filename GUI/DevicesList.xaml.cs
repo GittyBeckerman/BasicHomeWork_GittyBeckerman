@@ -29,7 +29,7 @@ namespace GUI
         public DevicesList(ObservationDeviceModel blMain)
         {
             InitializeComponent();
-            observationDeviceModel = blMain;
+            this.observationDeviceModel = blMain;
     
             foreach (ObservationDevice device in observationDeviceModel.GetDevicesList())
             {

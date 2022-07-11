@@ -33,7 +33,7 @@
                                         <Expander IsExpanded="true">
                                             <Expander.Header>
                                                 <StackPanel Orientation="Horizontal">
-                                                 
+
                                                     <TextBlock Text=" " FontSize="18" Foreground="Silver" FontStyle="Italic" VerticalAlignment="Bottom" />
                                                 </StackPanel>
                                             </Expander.Header>
@@ -48,6 +48,6 @@
             </ListView.GroupStyle>
         </ListView>
         <Button Content="sort by range" HorizontalAlignment="Left" Height="22" Margin="474,22,0,0" VerticalAlignment="Top" Width="161" Click="SortByRange"/>
-        <Label Content="To delete a device, double-click it" Margin="20,22,0,0" />
+        <Label Content="To delete a device, double-click it" Margin="20,22,572,379" />
     </Grid>
 </Window>

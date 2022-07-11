@@ -18,10 +18,12 @@ namespace GUI
     /// <summary>
     /// Interaction logic for LongRange.xaml
     /// </summary>
+    /// 
     public partial class LongRange : Window
     {
         // the instance of model
         ObservationDeviceModel ObservationDeviceModel;
+        // ctor:   Initialize component'   Initialize the instance of model
         public LongRange(ObservationDeviceModel ObservationDeviceModelMain)
         {
 
@@ -30,8 +32,12 @@ namespace GUI
 
 
         }
+        /// <summary>
+        ///  the function display to the screen the devices who are they FieldOfView is at least As in their requirement and the range is max!
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
-        // the function display to the screen the devices who are they FieldOfView is at least As in their requirement and the range is max!
         private void DisplaySuitabledevices(object sender, RoutedEventArgs e)
         {
             try
@@ -52,7 +58,7 @@ namespace GUI
 
 
 
-        // cheack input function
+        // cheack input function - helper function
         public double fieldOfVisionInput()
         {
             try { return double.Parse(fieldOfViewInput.Text); }

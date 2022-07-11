@@ -21,7 +21,8 @@ namespace GUI
     /// </summary>
     public partial class MainWindow : Window
     {
-       private ObservationDeviceModel bl = new ObservationDeviceModel();
+        // the single instance of Model
+        private ObservationDeviceModel observationDeviceModel = new ObservationDeviceModel();
         public MainWindow()
         {
             InitializeComponent();
@@ -29,20 +30,20 @@ namespace GUI
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void AddDevice(object sender, RoutedEventArgs e)
         {
-            new AddDevice(bl).Show();
+            new AddDevice(observationDeviceModel).Show();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            new DevicesList(bl).Show();
+            new DevicesList(observationDeviceModel).Show();
 
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            new LongRange(bl).Show();
+            new LongRange(observationDeviceModel).Show();
         }
 
     }
