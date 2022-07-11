@@ -6,10 +6,13 @@
         xmlns:local="clr-namespace:GUI"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    <Grid  >
+
+  
         <Button Content="הוספת אמצעי תצפית" HorizontalAlignment="Left" Height="55" Margin="541,28,0,0" VerticalAlignment="Top" Width="217" Click="AddDevice"/>
         <Button Content="הצגת כל אמצעי התצפית" HorizontalAlignment="Left" Height="55" Margin="541,102,0,0" VerticalAlignment="Top" Width="217" Click="ShowAllDevices"/>
         <Button Content="הצגת אמצעי &#xA;תצפית הרחוק ביותר" HorizontalAlignment="Left" Height="55" Margin="541,0,0,0" VerticalAlignment="Center" Width="217" Click="ShowTheFarestDevice"/>
+        <Image  Source="/AssemblyName;component/Images/BackImg.png" Margin="0,0,0,-1" Stretch="UniformToFill"/>
 
     </Grid>
 </Window>
