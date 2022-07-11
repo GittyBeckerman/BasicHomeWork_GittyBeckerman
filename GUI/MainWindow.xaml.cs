@@ -30,18 +30,33 @@ namespace GUI
 
         }
 
+        /// <summary>
+        /// send to new window = add device
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AddDevice(object sender, RoutedEventArgs e)
         {
             new AddDevice(observationDeviceModel).Show();
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// send to new window of list of the devices
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ShowAllDevices(object sender, RoutedEventArgs e)
         {
             new DevicesList(observationDeviceModel).Show();
 
         }
 
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// send to new window that show the farest device
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ShowTheFarestDevice(object sender, RoutedEventArgs e)
         {
             new LongRange(observationDeviceModel).Show();
         }

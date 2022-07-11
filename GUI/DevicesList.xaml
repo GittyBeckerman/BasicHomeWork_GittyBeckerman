@@ -7,9 +7,9 @@
         mc:Ignorable="d"
         Title="DevicesList" Height="450" Width="800">
     <Grid>
-        <ComboBox Name="TypeSelector" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" SelectionChanged="TypeSelectorSelectionChanged" Margin="640,22,0,0" />
+        <ComboBox Name="TypeSelector" Text="filter " HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" SelectionChanged="TypeSelectorSelectionChanged" Margin="640,22,0,0" />
 
-        <ListView x:Name="DevicesListView" ItemsSource="{Binding}"  FontSize="15" Padding="10" Margin="22,60,22,22" MouseDoubleClick="DeleteDeviceFromList">
+        <ListView x:Name="DevicesListView" ItemsSource="{Binding}"   FontSize="15" Padding="10" Margin="22,60,22,22" MouseDoubleClick="DeleteDeviceFromList">
             <ListView.Resources>
                 <DataTemplate x:Key="MyDataTemplate">
 
@@ -20,6 +20,7 @@
                     <GridViewColumn  Header="Range"         Width="50"  DisplayMemberBinding="{Binding range }" />
                     <GridViewColumn Header="Field of vision"      Width="130" DisplayMemberBinding="{Binding FieldOfView}" />
                     <GridViewColumn Header="Type" Width="130" DisplayMemberBinding="{Binding ObserveType}" />
+      
                 </GridView>
             </ListView.View>
 
@@ -47,7 +48,7 @@
                 </GroupStyle>
             </ListView.GroupStyle>
         </ListView>
-        <Button Content="sort by range" HorizontalAlignment="Left" Height="22" Margin="474,22,0,0" VerticalAlignment="Top" Width="161" Click="SortByRange"/>
+        <Button Content="sort by range" HorizontalAlignment="Left" Height="22" Margin="467,22,0,0" VerticalAlignment="Top" Width="161" Click="SortByRange"/>
         <Label Content="To delete a device, double-click it" Margin="20,22,572,379" />
     </Grid>
 </Window>

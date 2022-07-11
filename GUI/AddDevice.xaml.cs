@@ -16,25 +16,35 @@ using Model;
 namespace GUI
 {
     /// <summary>
-    /// Interaction logic for AddDevice.xaml
+    /// Interaction logic for AddDevice.xaml, this window is like ViewModel
     /// </summary>
     public partial class AddDevice : Window
     {
-        private ObservationDeviceModel bl;
-        public AddDevice(ObservationDeviceModel blMain)
+        
+        //the single instance of model
+        private ObservationDeviceModel observationDeviceModel;
+        /// <summary>
+        /// ctor:: Initialize component, Initialize the single instance
+        /// </summary>
+        /// <param name="ObservationDeviceModelMain"></param>
+        public AddDevice(ObservationDeviceModel ObservationDeviceModelMain)
         {
             InitializeComponent();
-            bl = blMain;
+            observationDeviceModel = ObservationDeviceModelMain;
             Type.ItemsSource = Enum.GetValues(typeof(ObserveType));
            
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// add device - call to the Model to  Add device
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void AddDeviceToModel(object sender, RoutedEventArgs e)
         {
      
             try
             {
-                bl.AddDevice(RangeInput(), fieldOfVisionInput(), (ObserveType)TypeInput());
+                observationDeviceModel.AddDevice(RangeInput(), fieldOfVisionInput(), (ObserveType)TypeInput());
                 MessageBox.Show("you add Observation Device succesfully");
                 Close();
             }
@@ -44,26 +54,25 @@ namespace GUI
                 this.Close();
             }
         }
+
+        // chack input function - helper
         public double RangeInput()
         {
             try { return double.Parse(rangeInput.Text); }
             catch (Exception) { throw new InvalidObjException("range"); }
         }
-
+        // chack input function - helper
         public int TypeInput()
         {
             return Type.SelectedIndex != -1 ? Type.SelectedIndex  : throw new InvalidObjException("Weight");
         }
-
+        // chack input function - helper
         public double fieldOfVisionInput()
         {
             try { return double.Parse(fieldOfViewInput.Text); }
             catch (Exception) { throw new InvalidObjException("field Of vision"); }
         }
 
-        private void Type_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
+   
     }
 }

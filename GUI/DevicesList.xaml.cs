@@ -21,11 +21,13 @@ namespace GUI
     /// </summary>
     public partial class DevicesList : Window
     {
+        //the single instance of the model
         ObservationDeviceModel observationDeviceModel;
 
 
         //viewModel instance - update the **view** auto when there is a change;
         private ObservableCollection<ObservationDevice> MyCollection = new ObservableCollection<ObservationDevice>();
+        //ctor:  Initialize component,  Initialize the instace to the single instance
         public DevicesList(ObservationDeviceModel blMain)
         {
             InitializeComponent();
@@ -41,9 +43,11 @@ namespace GUI
            
           
         }
-        
-
-        // the viewModel call to the Model and delete the device.
+        /// <summary>
+        ///  the viewModel call to the Model and delete the device.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void DeleteDeviceFromList(object sender, MouseButtonEventArgs e)
         {
             try
@@ -61,14 +65,22 @@ namespace GUI
                 Close();
             }
         }
-
+        /// <summary>
+        /// the viewModel update the view to show filter List
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void TypeSelectorSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ComboBox status = sender as ComboBox;
 
             DevicesListView.ItemsSource = observationDeviceModel.GetDevicesList().FindAll(device => device.ObserveType == (ObserveType)status.SelectedItem);
         }
-
+        /// <summary>
+        ///  the viewModel update the view to show the sorted  List
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SortByRange(object sender, RoutedEventArgs e)
         {
             

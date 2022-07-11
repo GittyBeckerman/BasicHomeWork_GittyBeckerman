@@ -7,13 +7,13 @@
         mc:Ignorable="d"
         Title="AddDevice" Height="450" Width="800">
     <Grid>
-        <ComboBox Name="Type"  Text="{Binding Type , Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  Margin="0,137,55,0" Height="30"  Width="120"  HorizontalAlignment="Right"  VerticalAlignment="Top" SelectionChanged="Type_SelectionChanged"/>
+        <ComboBox Name="Type"  Text="{Binding Type , Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  Margin="0,137,55,0" Height="30"  Width="120"  HorizontalAlignment="Right"  VerticalAlignment="Top" />
         <TextBox Name="rangeInput"  Margin="0,44,55,0" Width="120" Height="17" HorizontalAlignment="Right"  VerticalAlignment="Top"/>
         <TextBox Name="fieldOfViewInput" Margin="0,92,55,0" Width="120"  Height="17" HorizontalAlignment="Right"  VerticalAlignment="Top"/>
         <Label Content="range:" HorizontalAlignment="Left" Margin="432,27,0,0" VerticalAlignment="Top" Width="170" Height="34"/>
         <Label Content="Type:" HorizontalAlignment="Left" Margin="432,134,0,0" VerticalAlignment="Top" Width="170" Height="34"/>
         <Label Content="field of vision:" HorizontalAlignment="Left" Margin="423,84,0,0" VerticalAlignment="Top" Width="170" Height="34"/>
-        <Button Content="Add" Margin="423,195,55,195" Click="Button_Click"/>
+        <Button Content="Add" Margin="423,195,55,195" Click="AddDeviceToModel"/>
 
     </Grid>
 </Window>
